@@ -17,6 +17,9 @@ async def on_message(message):
     elif 'good bot' in message.content.lower():
         msg = 'I\'ll suck yo dick'.format(message)
         await client.send_message(message.channel, msg)
+    elif 'blockchain' in message.content.lower():
+        msg = 'Summoning @AltarCrystal'.format(message)
+        await client.send_message(message.channel, msg)
     elif message.content.startswith('!'):
         msg = 'WHAT I DON\'T UNDERSTAND'.format(message)
         await client.send_message(message.channel, msg)
