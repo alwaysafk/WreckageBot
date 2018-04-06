@@ -1,7 +1,7 @@
 # https://github.com/alwaysafk/WreckageBot.git
 import discord
-
-TOKEN = 'NDMxODEzMjQzNDQ3NTQxNzYx.DakM-Q.MUC_R3YLzUzyb5ynRXH-S8WZAEQ'
+import BotToken
+TOKEN = BotToken.bot_token
 
 client = discord.Client()
 
@@ -18,7 +18,7 @@ async def on_message(message):
         msg = 'I\'ll suck yo dick'.format(message)
         await client.send_message(message.channel, msg)
     elif 'blockchain' in message.content.lower():
-        msg = 'Summoning @AltarCrystal#6470'.format(message)
+        msg = 'Summoning '.format(message)
         await client.send_message(message.channel, msg)
     elif message.content.startswith('!'):
         msg = 'WHAT I DON\'T UNDERSTAND'.format(message)
