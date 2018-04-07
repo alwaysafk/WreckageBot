@@ -1,7 +1,7 @@
 # https://github.com/alwaysafk/WreckageBot.git
 import discord
-import BotToken
-TOKEN = BotToken.bot_token
+import bot_token
+TOKEN = bot_token.bot_token
 
 client = discord.Client()
 
@@ -10,6 +10,7 @@ async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
+    msgAuthor = message.author.nick
 
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}'.format(message)
@@ -17,11 +18,8 @@ async def on_message(message):
     elif 'good bot' in message.content.lower():
         msg = 'I\'ll suck yo dick'.format(message)
         await client.send_message(message.channel, msg)
-    elif 'blockchain' in message.content.lower():
-        msg = 'Summoning '.format(message)
-        await client.send_message(message.channel, msg)
-    elif message.content.startswith('!'):
-        msg = 'WHAT I DON\'T UNDERSTAND'.format(message)
+    elif msgAuthor == 'Conqquest' and 'bruh' in message.content.lower():
+        msg = '\U0001F476 {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
 
 @client.event
