@@ -1,6 +1,8 @@
 # https://github.com/alwaysafk/WreckageBot.git
 import discord
 import bot_token
+import random
+
 TOKEN = bot_token.bot_token
 
 client = discord.Client()
@@ -15,12 +17,17 @@ async def on_message(message):
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
+    elif message.content.startswith('!roll'):
+        roll = random.randint(1, 100)
+        msg = '{0.author.mention} got %d'.format(message) % roll
+        await client.send_message(message.channel, msg)
     elif 'good bot' in message.content.lower():
         msg = 'I\'ll suck yo dick'.format(message)
         await client.send_message(message.channel, msg)
     elif msgAuthor == 'Conqquest' and 'bruh' in message.content.lower():
         msg = '\U0001F476 {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
+
 
 @client.event
 async def on_ready():
